@@ -15,7 +15,7 @@ Question - will this run from a Windows terminal? - Instructions for how to run 
 You will need to download this Github repository.  
 Then, in your terminal, navigate to the directory scrub/bin.
 Enter the following command: 
-`scrub sensitive_fields.txt input.json`
+`./scrub sensitive_fields.txt input.json`
 
  - "sensitive_fields.txt" is a text-based list of fields that need to be scrubbed out.  Each line in the file should contain only one field name. (name, email, etc)
  - "input.json" is a JSON file of text that needs to be scrubbed.
