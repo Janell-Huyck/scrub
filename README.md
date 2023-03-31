@@ -13,7 +13,7 @@ When called from the command line with those two arguments, it prints out to the
 Question - will this run from a Windows terminal? - Instructions for how to run in Windows?
 
 You will need to download this Github repository.  
-Then, in your terminal, navigate to the directory scrub/bin.
+Then, in your terminal, navigate to inside the "scrub" directory.
 Enter the following command: 
 `./scrub sensitive_fields.txt input.json`
 
