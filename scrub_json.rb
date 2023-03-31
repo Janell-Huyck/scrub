@@ -1,4 +1,4 @@
-class Scrub
+class ScrubJson
   def initialize(sensitive_fields, input_json)
     @sensitive_fields = sensitive_fields
     @input_json = input_json
