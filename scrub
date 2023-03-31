@@ -3,22 +3,44 @@
 require 'json'
 require_relative 'scrub_json.rb'
 
-sensitive_fields = File.open(ARGV[0]).readlines.map(&:strip)
-input_json = JSON.parse(File.open(ARGV[1]).read)
+# Wrapping the File.open in `begin` and `ensure` ensures that the file
+# will be closed even if an exception is raised.
+begin
+  sensitive_fields_file = File.open(ARGV[0])
+  sensitive_fields = sensitive_fields_file.readlines.map(&:strip)
+ensure
+  sensitive_fields_file.close if sensitive_fields_file
+end
+
+
+begin
+  input_json_file = File.open(ARGV[1])
+  input_json = JSON.parse(input_json_file.read)
+ensure
+  input_json_file.close if input_json_file
+end
 
 scrubber = ScrubJson.new(sensitive_fields, input_json)
 
 scrubber.scrub
 
+# The output of the script is saved in the instance variable `@input_json`.
+output = scrubber.instance_variable_get(:@input_json)
+puts output.to_json
 
 # This is what I used to aid my own manual testing of the script.
 # It's not part of the specification, so I've commented it out.
 # Feel free to uncomment it if you want to use it.
 #
-# output = scrubber.instance_variable_get(:@input_json)
 #
 # if ARGV[2]
-#   expected_output = JSON.parse(File.open(ARGV[2]).read)
+#   begin
+#     expected_output_file = File.open(ARGV[2])
+#     expected_output = JSON.parse(expected_output_file.read)
+#   ensure
+#     expected_output_file.close if expected_output_file
+#   end
+#
 #   if expected_output == output
 #     puts "Success!"
 #   else
