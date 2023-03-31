@@ -12,7 +12,6 @@ ensure
   sensitive_fields_file.close if sensitive_fields_file
 end
 
-
 begin
   input_json_file = File.open(ARGV[1])
   input_json = JSON.parse(input_json_file.read)

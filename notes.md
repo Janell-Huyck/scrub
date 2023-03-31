@@ -24,8 +24,7 @@ I used this tutorial as a starting point for my own command line executable.
 
 The requirements for each datatype were clearly laid out in the assessment instructions.
 This was a perfect set-up for me to use TDD.  I wrote a test for each datatype, and then wrote the code to make the test pass.
-Github copilot assisted in writing the classes and tests, but significant modifications were made to
-the code to make it work.
+Github copilot assisted in writing the classes and tests, but I had to make significant modifications to the code to make it work.
 
 ## Iteration and recursion within the JSON hash
 
@@ -44,13 +43,12 @@ testing the executable by running it in the command line and checking the output
 I wanted to make things a little easier on myself, so I created an optional argument for the executable
 that allows the user to specify an expected output file.  Then, running with three arguments instead of two, 
 the executable will compare the output to the expected output and print a message of success or failure.
-
 Because this was not part of the specifications, I commented this out, but left it in the code for discussion
 purposes with reviewers.
 
 ## Final thoughts
-I enjoyed making this executable.  It was a good exercise in learning how to write a command line executable,
-and good practice in using TDD to write code.  I would like to learn more about how to test executables.
+I enjoyed making this executable.  It was a good exercise in learning how to write a command line executable
+and good practice in using TDD to write code.  Thanks for the opportunity to work on this assessment!
 
 
 
