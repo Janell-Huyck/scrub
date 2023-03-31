@@ -8,4 +8,22 @@ input_json = JSON.parse(File.open(ARGV[1]).read)
 
 scrubber = ScrubJson.new(sensitive_fields, input_json)
 
-scrubber.declare
+scrubber.scrub
+
+
+# This is what I used to aid my own manual testing of the script.
+# It's not part of the specification, so I've commented it out.
+# Feel free to uncomment it if you want to use it.
+#
+# output = scrubber.instance_variable_get(:@input_json)
+#
+# if ARGV[2]
+#   expected_output = JSON.parse(File.open(ARGV[2]).read)
+#   if expected_output == output
+#     puts "Success!"
+#   else
+#     puts "Failure!"
+#     puts "Expected output: #{expected_output}"
+#     puts "Actual output: #{output}"
+#   end
+# end
