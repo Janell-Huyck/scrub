@@ -5,6 +5,10 @@
 
 class ScrubJson
   def initialize(sensitive_fields, input_json)
+    unless sensitive_fields.is_a?(Array)
+      raise ArgumentError.new("Sensitive fields must be an array")
+    end
+
     @sensitive_fields = sensitive_fields
     @input_json = input_json
   end
@@ -29,7 +33,7 @@ class ScrubJson
     elsif value.is_a?(Array)
       scrub_array(key, value)
     else
-      scrub_string(key, value)
+      scrub_string_number_or_bool(key, value)
     end
   end
 
@@ -99,7 +103,7 @@ class ScrubJson
   end
 
   # This function will conditionally scrub a string.
-  def scrub_string(key, value)
+  def scrub_string_number_or_bool(key, value)
     return nil if value.nil?
 
     key = key.to_s

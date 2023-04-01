@@ -7,24 +7,15 @@ It seemed to me that the main thrusts of the assessment were:
 4) testing
 
 ## Managing command line executables
-Before this assessment, I had never written a Ruby command line executable.  A quick search turned up this excellent tutorial video:
-https://www.youtube.com/watch?v=VDdgFCskcnQ
-
-This video was a walkthrough on the basics of how to create a command that echoed back what someone's favorite color was when it was given as a string argument.
-
-It taught me:
- - Using the require_relative command in the executable file ("scrub") to reference the code written in the main code file ("scrub_json.rb").
- - Using the ARGV array to access the arguments passed to the command
- - Setting up permissions so that anyone can execute the file
- - Using the shebang line to tell the computer what interpreter to use to run the file
-
-I used this tutorial as a starting point for my own command line executable.
+Before this assessment, I had never written a Ruby command line executable.  A quick search turned up this excellent 
+tutorial video: https://www.youtube.com/watch?v=VDdgFCskcnQ This video was a walkthrough on the basics of how to create
+a command that echoed back what someone's favorite color was when it was given as a string argument.  I used this 
+tutorial as a starting point for my own command line executable.
 
 ## Correctly dealing with datatypes and the JSON hash
 
 The requirements for each datatype were clearly laid out in the assessment instructions.
 This was a perfect set-up for me to use TDD.  I wrote a test for each datatype, and then wrote the code to make the test pass.
-Github copilot assisted in writing the classes and tests, but I had to make significant modifications to the code to make it work.
 
 ## Iteration and recursion within the JSON hash
 
@@ -36,15 +27,35 @@ I created a few new methods to handle this situation, where I was still drilling
 the check for whether a key was sensitive.
 
 ## Testing
-I was using Rspec to create unit tests for each datatype.  Rspec is not designed to be able to handle
-tests for executables.  I was unable to find a way to test the executable using Rspec.  I ended up
-testing the executable by running it in the command line and checking the output.
+I used Rspec to create unit tests for each datatype.  Rspec is not designed to be able to handle
+tests for executables.  To test the executable with the test files provided by ActBlue, I wrote another
+script that would run as an executable and compare the output to the expected output for the files in each
+of the ten test folders provided.  
 
-I wanted to make things a little easier on myself, so I created an optional argument for the executable
-that allows the user to specify an expected output file.  Then, running with three arguments instead of two, 
-the executable will compare the output to the expected output and print a message of success or failure.
-Because this was not part of the specifications, I commented this out, but left it in the code for discussion
-purposes with reviewers.
+### To run the tests:
+
+Running the rspec unit tests, from the root directory sinply run:
+```
+rspec
+```
+
+To run the executable tests from the root directory:
+First, you must disable the check for the correct number of arguments in the scrub executable.
+To do this, comment out the following lines in the scrub executable:
+```
+ if ARGV.length != 2
+   puts
+   puts "*** ERROR: Incorrect number of arguments ***"
+   puts "You passed #{ARGV.length} arguments, but this script requires exactly 2 arguments."
+   puts "Example: ./script.rb sensitive_fields.txt input.json"
+   puts "********"
+   exit 1
+ end
+```
+Then, run the executable tests from the command line:
+```
+ruby run_tests.rb
+```
 
 ## Final thoughts
 I enjoyed making this executable.  It was a good exercise in learning how to write a command line executable
