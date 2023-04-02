@@ -34,15 +34,28 @@ of the ten test folders provided.
 
 ### To run the tests:
 
-Running the rspec unit tests, from the root directory sinply run:
+Running the rspec unit tests, from the root directory simply run:
 ```
 rspec
 ```
 
 To run the executable tests from the root directory:
+
+Either
 ```
 ruby run_tests.rb
 ```
+
+Or
+```
+./run_tests.rb
+```
+
+If you get a message saying that you do not have permission to execute that file, you'll need to run the following command:
+```
+chmod +x run_tests.rb
+```
+
 
 ## Final thoughts
 I enjoyed making this executable.  It was a good exercise in learning how to write a command line executable

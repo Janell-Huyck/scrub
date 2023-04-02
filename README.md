@@ -10,7 +10,8 @@ asterisks ("*****").
 
 ## How to run the code:
 
- - You will need to have Ruby installed on your computer.  This executable was written in Ruby 3.0.0.
+ - You will need to have Ruby installed on your computer.  This executable was written in Ruby 3.0.0, but it should
+    work with any version of Ruby 2 or higher.
  - You will need to download [this Github repository](https://github.com/Janell-Huyck/scrub).  
    (If you need assistance, please check out [this helpful article](https://blog.hubspot.com/website/download-from-github))
  - Open your terminal and navigate to inside the "scrub" directory (the repository you just downloaded).
@@ -27,7 +28,8 @@ your terminal: `chmod +x scrub` and try again.
 
 ## How to run the tests:
     
- - You will need to have Rspec installed on your computer as well as Ruby.
+ - You will need to have Rspec installed on your computer as well as Ruby.  The Rspec tests were written in
+Rspec version 3.12
  - Navigate in your terminal to the "scrub" directory (same place as where you were running the executable).
  - Run the following command: `rspec`
 
@@ -35,5 +37,22 @@ your terminal: `chmod +x scrub` and try again.
 
 - You will need to have Ruby installed on your computer.
 - Navigate in your terminal to the "scrub" directory (same place as where you were running the executable).
-- Run the following command: `ruby run_tests.rb`
+- To run the executable tests from the root directory:
+
+Either
+```
+ruby run_tests.rb
+```
+
+Or
+```
+./run_tests.rb
+```
+
+If you get a message saying that you do not have permission to execute that file, you'll need to run the following command:
+```
+chmod +x run_tests.rb
+```
+
+
    
