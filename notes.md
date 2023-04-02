@@ -40,19 +40,6 @@ rspec
 ```
 
 To run the executable tests from the root directory:
-First, you must disable the check for the correct number of arguments in the scrub executable.
-To do this, comment out the following lines in the scrub executable:
-```
- if ARGV.length != 2
-   puts
-   puts "*** ERROR: Incorrect number of arguments ***"
-   puts "You passed #{ARGV.length} arguments, but this script requires exactly 2 arguments."
-   puts "Example: ./script.rb sensitive_fields.txt input.json"
-   puts "********"
-   exit 1
- end
-```
-Then, run the executable tests from the command line:
 ```
 ruby run_tests.rb
 ```

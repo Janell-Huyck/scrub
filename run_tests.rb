@@ -5,22 +5,7 @@
 # output in the output.json file in each folder.
 # It will print a message for each test that passes or fails.
 #
-# To run this script, you will need to comment out the following lines
-# from the scrub file:
-#
-# if ARGV.length != 2
-#   puts
-#   puts "*** ERROR: Incorrect number of arguments ***"
-#   puts "You passed #{ARGV.length} arguments, but this script requires exactly 2 arguments."
-#   puts "Example: ./script.rb sensitive_fields.txt input.json"
-#   puts "********"
-#   exit 1
-# end
-#
-# That functionality is checking that there are only 2 arguments passed,
-# but we need to pass 3 arguments to the executable in order to run the
-# tests.
-# Then, to run the tests, run the following command from the root directory:
+# Run the following command from the root directory:
 #
 # ruby run_tests.rb
 #
@@ -44,7 +29,7 @@ Dir.glob("#{File.expand_path(__dir__)}/test_files_from_ActBlue/*").each do |fold
   output_file = "#{File.expand_path(folder)}/output.json"
 
   # Run the scrub executable
-  cmd = "./scrub #{sensitive_fields_file} #{input_file} #{output_file}"
+  cmd = "./scrub #{sensitive_fields_file} #{input_file}"
   puts "Running command: #{cmd}"
   system(cmd)
 

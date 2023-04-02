@@ -35,16 +35,5 @@ your terminal: `chmod +x scrub` and try again.
 
 - You will need to have Ruby installed on your computer.
 - Navigate in your terminal to the "scrub" directory (same place as where you were running the executable).
-- Comment out the following lines in the "scrub" executable:
-   ```
-   if ARGV.length != 2
-       puts
-       puts "*** ERROR: Incorrect number of arguments ***"
-       puts "You passed #{ARGV.length} arguments, but this script requires exactly 2 arguments."
-       puts "Example: ./script.rb sensitive_fields.txt input.json"
-       puts "********"
-       exit 1
-   end
-   ```
 - Run the following command: `ruby run_tests.rb`
    
