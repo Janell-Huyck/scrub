@@ -1,4 +1,4 @@
-# This is how I approached this problem:
+# How I approached this problem:
 
 It seemed to me that the main thrusts of the assessment were:
 1) managing command line executables
