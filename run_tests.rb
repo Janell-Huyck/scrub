@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # This script runs the scrub executable on all the test files in the
-# test_files_from_ActBlue folder and compares the output to the expected
+# test_files_for_end_to_end folder and compares the output to the expected
 # output in the output.json file in each folder.
 # It will print a message for each test that passes or fails.
 #
@@ -19,8 +19,8 @@ require_relative 'scrub_json.rb'
 # Initialize an empty array to hold failed tests
 failed_tests = []
 
-# Loop through each folder in test_files_from_ActBlue
-Dir.glob("#{File.expand_path(__dir__)}/test_files_from_ActBlue/*").each do |folder|
+# Loop through each folder in test_files_for_end_to_end
+Dir.glob("#{File.expand_path(__dir__)}/test_files_for_end_to_end/*").each do |folder|
   next unless File.directory?(folder)
 
   # Set up file paths
