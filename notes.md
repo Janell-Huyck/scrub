@@ -1,6 +1,6 @@
 # How I approached this problem:
 
-It seemed to me that the main thrusts of the assessment were:
+It seemed to me that the main thrusts of this project were:
 1) managing command line executables
 2) correctly dealing with datatypes
 3) iteration and recursion within the JSON hash
